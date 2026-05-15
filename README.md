@@ -17,6 +17,11 @@ This is a clean, modern website template for academic project pages. It's based 
 
 ## Usage
 
+### Code Links
+
+- Code: [github.com/barrierik_ros](https://github.com/barrierik_ros)
+- Simulation: [github.com/barrierik_unity](https://github.com/barrierik_unity)
+
 1. Replace placeholder text in `index.html` with your project details:
    - Project title and description
    - Author names and affiliations
