@@ -1,8 +1,8 @@
 
 ### Code Links
 
-- Code: [github.com/barrierik_ros](https://github.com/barrierik_ros)
-- Simulation: [github.com/barrierik_unity](https://github.com/barrierik_unity)
+- Code: [github.com/berkguler/barrierik_ros](https://github.com/berkguler/barrierik_ros)
+- Simulation: [github.com/berkguler/barrierik_unity](https://github.com/berkguler/barrierik_unity)
 
 
 
