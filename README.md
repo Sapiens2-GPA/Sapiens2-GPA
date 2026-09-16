@@ -1,6 +1,6 @@
 # Sapiens2-GPA
 
-This is the repository that contains the source code for the [Sapiens2-GPA website](https://nerfies.github.io). Thanks for Nerfies for their source code!
+This is the repository that contains the source code for the [Sapiens2-GPA website]([https://nerfies.github.io](https://sapiens2-gpa.github.io/Sapiens2-GPA/)). Thanks to Nerfies for their source code!
 
 
 # Website License
