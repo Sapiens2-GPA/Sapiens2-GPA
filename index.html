@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Sapiens2-GPA aligns latent visual and geometric representations for robust 3D head expression estimation.">
-  <meta name="keywords" content="Sapiens2-GPA, 3D Head, Expression Estimation">
+        content="ViGA-FLAME aligns latent visual and geometric representations for robust 3D head expression estimation.">
+  <meta name="keywords" content="ViGA-FLAME, 3D Head, Expression Estimation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sapiens2-GPA</title>
+  <title>ViGA-FLAME</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -63,7 +63,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Sapiens2-GPA:<br/>Aligning Latent Visual and Geometric Representations for Robust 3D Head Expression Estimation</h1>
+          <h1 class="title is-1 publication-title">VIGA-FLAME:<br/>Aligning Latent Visual and Geometric Representations for Robust 3D Head Expression Estimation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               Wen Hao He,</span>
@@ -117,20 +117,21 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Parametric 3D head estimation from a single image requires jointly reasoning about
-            detailed geometry, facial expression, head pose, and camera configuration.
-            We propose a two-stage framework that aligns visual features with a unified geometric
-            prior.
-            First, HeadVAE learns a structured latent representation from canonical, ordered FLAME
-            point clouds, jointly capturing fine-grained geometry and interpretable FLAME parameters
-            through geometric reconstruction, parameter supervision, decoded-surface supervision, and
-            dual-branch consistency.
-            Second, we introduce the Sapiens2 Geometry and Placement Adapter <b>(Sapiens2-GPA)</b>, which
-            reads frozen contextual tokens from a pre-trained Sapiens2 encoder while preserving its
-            original semantic stream.
-            Experiments show high-quality geometric reconstruction and FLAME parameter estimation
-            over feed-forward baselines, with qualitatively robust performance under visual domain
-            shift.
+            Estimating 3D head expression from a single image requires linking visual appearance to
+            facial geometry. We propose ViGA-FLAME, a two-stage framework that aligns semantic
+            visual features with a structured geometric latent space. First, a Parametric–Geometric
+            Variational Autoencoder (PG-VAE) learns a shared representation of canonical head
+            surfaces and FLAME parameters, supporting both detailed surface reconstruction and
+            interpretable parameter recovery. Supervision on geometry and parameters, together with
+            consistency between the two decoding branches, connects surface detail with parametric
+            structure. Second, a trainable adapter maps features from a pretrained semantic visual
+            encoder, Sapiens2, into this latent space. Asymmetric attention allows the adapter to
+            read contextual features while preserving the encoder's original semantic outputs.
+            By aligning visual semantics with geometric structure, ViGA-FLAME enables coherent,
+            feed-forward reconstruction under extreme expressions and profile views, outperforming
+            competing methods on challenging synthetic and real-world benchmarks.
+            Comprehensive visualization could be found via
+            <a href="https://sapiens2-gpa.github.io/Sapiens2-GPA/"><i>ViGA-FLAME</i></a>.
           </p>
         </div>
       </div>
