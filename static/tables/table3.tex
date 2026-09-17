@@ -1,0 +1,11 @@
+\begin{table}[htbp]\centering\small
+\setlength{\tabcolsep}{3pt}
+\caption{Ablation studies of \headvae variations.}\label{tab:ablation_headvae}
+\begin{tabular}{lccc}\toprule
+Method & Recon. ↓ & Param. ↓ & Recon.$\leftrightarrow$Param. ↓ \\ \midrule
+Base & 1.0281 & 0.9472 & 1.2707\\
++ $\lambda_g\mathcal{L}_{\mathrm{par\text{-}gt}}$ & 0.9942 & 0.8152 & 1.1726\\
+++ $\lambda_c\mathcal{L}_{\mathrm{par\text{-}geo}}$ & 1.0347 & 0.7643 & 1.2344\\
++++ $\text{Cond}_{query}$ & 0.8647 & 0.4975 & 0.9713\\ 
++++ $\text{Cond}_{add}$ & 0.9831 & 0.5830 & 1.1605\\ \bottomrule
+\end{tabular}\end{table} 

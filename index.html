@@ -178,7 +178,186 @@
       <div class="column is-full-width has-text-centered">
         <h2 class="title is-3">Quantitative Comparisons</h2>
         <div class="content">
-          <!-- TODO: Add quantitative comparison tables/figures here -->
+          <table class="table is-bordered is-striped is-fullwidth is-narrow has-text-centered"
+                 style="font-size: 0.85rem;">
+            <caption style="caption-side: top; text-align: left; font-size: 0.8rem;">
+              <b>Face-only reconstruction across synthetic FLAME subsets and the RenderMe360 dataset.</b>
+              Results are averaged over all five camera views after rigid ICP alignment.
+              CD-L1 is reported in millimeters. Best results are in bold.
+            </caption>
+            <thead>
+              <tr>
+                <th rowspan="2">Method</th>
+                <th colspan="2">All typical</th>
+                <th colspan="2">Shape extreme</th>
+                <th colspan="2">Expression extreme</th>
+                <th colspan="2">Pose extreme</th>
+                <th colspan="2">All extreme</th>
+                <th colspan="2">RenderMe360</th>
+              </tr>
+              <tr>
+                <th>CD-L1&#8595;</th><th>F@5&#8593;</th>
+                <th>CD-L1&#8595;</th><th>F@5&#8593;</th>
+                <th>CD-L1&#8595;</th><th>F@5&#8593;</th>
+                <th>CD-L1&#8595;</th><th>F@5&#8593;</th>
+                <th>CD-L1&#8595;</th><th>F@5&#8593;</th>
+                <th>CD-L1&#8595;</th><th>F@5&#8593;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ViGA-FLAME Recon.</td>
+                <td>2.693</td><td>0.937</td>
+                <td>2.774</td><td>0.923</td>
+                <td>2.727</td><td>0.930</td>
+                <td>3.581</td><td>0.835</td>
+                <td>3.768</td><td>0.798</td>
+                <td>4.430</td><td>0.696</td>
+              </tr>
+              <tr>
+                <td>ViGA-FLAME Param.</td>
+                <td><b>2.556</b></td><td><b>0.949</b></td>
+                <td><b>2.710</b></td><td><b>0.929</b></td>
+                <td><b>2.659</b></td><td><b>0.938</b></td>
+                <td><b>3.212</b></td><td><b>0.868</b></td>
+                <td><b>3.445</b></td><td><b>0.833</b></td>
+                <td>4.074</td><td>0.731</td>
+              </tr>
+              <tr>
+                <td>DECA</td>
+                <td>3.181</td><td>0.864</td>
+                <td>3.468</td><td>0.822</td>
+                <td>3.285</td><td>0.849</td>
+                <td>6.460</td><td>0.650</td>
+                <td>6.642</td><td>0.608</td>
+                <td>3.972</td><td>0.747</td>
+              </tr>
+              <tr>
+                <td>SMIRK</td>
+                <td>3.267</td><td>0.848</td>
+                <td>3.489</td><td>0.819</td>
+                <td>3.341</td><td>0.835</td>
+                <td>6.016</td><td>0.653</td>
+                <td>6.260</td><td>0.618</td>
+                <td>4.184</td><td>0.723</td>
+              </tr>
+              <tr>
+                <td>TEASER</td>
+                <td>3.443</td><td>0.821</td>
+                <td>3.662</td><td>0.792</td>
+                <td>3.517</td><td>0.812</td>
+                <td>5.620</td><td>0.642</td>
+                <td>5.817</td><td>0.615</td>
+                <td>4.492</td><td>0.693</td>
+              </tr>
+              <tr>
+                <td>SHeaP</td>
+                <td>4.269</td><td>0.823</td>
+                <td>4.988</td><td>0.769</td>
+                <td>4.786</td><td>0.788</td>
+                <td>8.023</td><td>0.613</td>
+                <td>8.113</td><td>0.585</td>
+                <td><b>3.754</b></td><td><b>0.780</b></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table is-bordered is-striped is-fullwidth is-narrow has-text-centered"
+                 style="font-size: 0.85rem; margin-top: 2rem;">
+            <caption style="caption-side: top; text-align: left; font-size: 0.8rem;">
+              <b>Face-only reconstruction across camera viewpoints.</b>
+              Results are averaged across all five synthetic FLAME parameter subsets after rigid ICP
+              alignment. CD-L1 is reported in millimeters. Best results are in bold.
+            </caption>
+            <thead>
+              <tr>
+                <th rowspan="2">Method</th>
+                <th colspan="2">Frontal (0&#176;)</th>
+                <th colspan="2">Half-profile (&plusmn;45&#176;)</th>
+                <th colspan="2">Profile (&plusmn;90&#176;)</th>
+              </tr>
+              <tr>
+                <th>CD-L1&#8595;</th><th>F@5&#8593;</th>
+                <th>CD-L1&#8595;</th><th>F@5&#8593;</th>
+                <th>CD-L1&#8595;</th><th>F@5&#8593;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ViGA-FLAME Recon.</td>
+                <td>3.019</td><td>0.902</td>
+                <td>3.011</td><td>0.896</td>
+                <td>3.251</td><td>0.864</td>
+              </tr>
+              <tr>
+                <td>ViGA-FLAME Param.</td>
+                <td><b>2.723</b></td><td><b>0.930</b></td>
+                <td><b>2.820</b></td><td><b>0.915</b></td>
+                <td><b>3.109</b></td><td><b>0.879</b></td>
+              </tr>
+              <tr>
+                <td>DECA</td>
+                <td>5.263</td><td>0.756</td>
+                <td>4.387</td><td>0.775</td>
+                <td>4.499</td><td>0.744</td>
+              </tr>
+              <tr>
+                <td>SMIRK</td>
+                <td>4.394</td><td>0.779</td>
+                <td>4.373</td><td>0.774</td>
+                <td>4.616</td><td>0.723</td>
+              </tr>
+              <tr>
+                <td>TEASER</td>
+                <td>4.116</td><td>0.772</td>
+                <td>4.407</td><td>0.745</td>
+                <td>4.564</td><td>0.710</td>
+              </tr>
+              <tr>
+                <td>SHeaP</td>
+                <td>5.642</td><td>0.736</td>
+                <td>5.408</td><td>0.743</td>
+                <td>6.860</td><td>0.678</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table is-bordered is-striped is-fullwidth is-narrow has-text-centered"
+                 style="font-size: 0.85rem; margin-top: 2rem;">
+            <caption style="caption-side: top; text-align: left; font-size: 0.8rem;">
+              <b>Ablation studies of PG-VAE variations.</b>
+            </caption>
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Recon. &#8595;</th>
+                <th>Param. &#8595;</th>
+                <th>Recon.&#8596;Param. &#8595;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Base</td>
+                <td>1.0281</td><td>0.9472</td><td>1.2707</td>
+              </tr>
+              <tr>
+                <td>+ &lambda;<sub>g</sub>L<sub>par-gt</sub></td>
+                <td>0.9942</td><td>0.8152</td><td>1.1726</td>
+              </tr>
+              <tr>
+                <td>++ &lambda;<sub>c</sub>L<sub>par-geo</sub></td>
+                <td>1.0347</td><td>0.7643</td><td>1.2344</td>
+              </tr>
+              <tr>
+                <td>+++ Cond<sub>query</sub></td>
+                <td>0.8647</td><td>0.4975</td><td>0.9713</td>
+              </tr>
+              <tr>
+                <td>+++ Cond<sub>add</sub></td>
+                <td>0.9831</td><td>0.5830</td><td>1.1605</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
