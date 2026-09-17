@@ -117,7 +117,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Estimating 3D head expression from a single image requires linking visual appearance to facial geometry. We propose ViGA-FLAME, a two-stage framework that aligns semantic visual features with a structured geometric latent space. First, a Parametric–Geometric Variational Autoencoder (PG-VAE) learns a shared representation of canonical head surfaces and FLAME parameters, supporting both detailed surface reconstruction and interpretable parameter recovery. Supervision on geometry and parameters, together with consistency between the two decoding branches, connects surface detail with parametric structure. Second, a trainable adapter maps features from a pretrained semantic visual encoder, Sapiens2, into this latent space. Asymmetric attention allows the adapter to read contextual features while preserving the encoder's original semantic outputs. ViGA-FLAME brings together complementary cues from visual semantics and geometric structure to support coherent 3D head expression estimation under challenging conditions, including extreme expressions and profile views, outperforming competing methods.
+            Estimating 3D head expression from a single image requires linking visual appearance to facial geometry. We propose ViGA-FLAME, a two-stage framework that aligns semantic visual features with a structured geometric latent space. First, a Parametric–Geometric Variational Autoencoder (PG-VAE) learns a unified parametric-geometric representation of canonical head surfaces and FLAME parameters, supporting both detailed surface reconstruction and interpretable parameter recovery. Supervision on geometry and parameters, together with consistency between the two decoding branches, connects surface detail with parametric structure. Second, a trainable Visual-Geometric Adapter (ViGA) maps features from a pretrained semantic visual encoder into this latent space. Asymmetric attention allows the adapter to read contextual features while preserving the encoder’s original semantic outputs. ViGA-FLAME brings together complementary cues from visual semantics and geometric structure to support coherent 3D head expression estimation under challenging conditions, including extreme expressions and viewing angles, outperforming competing methods.
           </p>
         </div>
       </div>
@@ -160,8 +160,10 @@
           <img src="./static/images/visualization.png"
                alt="Qualitative comparison visualization."/>
           <p>
-            (a) Input image; (b) frontal-view display; (c) GT mesh; (d) ViGA-FLAME;
-            (e) DECA; (f) SMIRK; (g) TEASER; (h) SHeaP.
+            <b>Qualitative face reconstruction comparisons.</b> Each row shows one example:
+            <span style="color: #0000FF;">(a) Input image</span>; (b) frontal-view display;
+            (c) Scan/GT mesh; (d) DECA [3]; (e) SMIRK [4]; (f) TEASER [5]; (g) SHeaP [6];
+            <span style="color: #FF0000;">(h) Our ViGA-FLAME</span>.
           </p>
         </div>
       </div>
@@ -184,6 +186,8 @@
               <b>Face-only reconstruction across synthetic FLAME subsets and the RenderMe360 dataset.</b>
               Results are averaged over all five camera views after rigid ICP alignment.
               CD-L1 is reported in millimeters. Best results are in bold.
+              &#916; denotes ViGA-FLAME Param. minus the strongest baseline for each metric;
+              negative CD-L1 and positive F@5 indicate improvements.
             </caption>
             <thead>
               <tr>
@@ -205,24 +209,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>ViGA-FLAME Recon.</td>
-                <td>2.693</td><td>0.937</td>
-                <td>2.774</td><td>0.923</td>
-                <td>2.727</td><td>0.930</td>
-                <td>3.581</td><td>0.835</td>
-                <td>3.768</td><td>0.798</td>
-                <td>4.430</td><td>0.696</td>
-              </tr>
-              <tr>
-                <td>ViGA-FLAME Param.</td>
-                <td><b>2.556</b></td><td><b>0.949</b></td>
-                <td><b>2.710</b></td><td><b>0.929</b></td>
-                <td><b>2.659</b></td><td><b>0.938</b></td>
-                <td><b>3.212</b></td><td><b>0.868</b></td>
-                <td><b>3.445</b></td><td><b>0.833</b></td>
-                <td>4.074</td><td>0.731</td>
-              </tr>
               <tr>
                 <td>DECA</td>
                 <td>3.181</td><td>0.864</td>
@@ -259,6 +245,33 @@
                 <td>8.113</td><td>0.585</td>
                 <td><b>3.754</b></td><td><b>0.780</b></td>
               </tr>
+              <tr>
+                <td>ViGA-FLAME Recon.</td>
+                <td>2.693</td><td>0.937</td>
+                <td>2.774</td><td>0.923</td>
+                <td>2.727</td><td>0.930</td>
+                <td>3.581</td><td>0.835</td>
+                <td>3.768</td><td>0.798</td>
+                <td>4.430</td><td>0.696</td>
+              </tr>
+              <tr>
+                <td>ViGA-FLAME Param.</td>
+                <td><b>2.556</b></td><td><b>0.949</b></td>
+                <td><b>2.710</b></td><td><b>0.929</b></td>
+                <td><b>2.659</b></td><td><b>0.938</b></td>
+                <td><b>3.212</b></td><td><b>0.868</b></td>
+                <td><b>3.445</b></td><td><b>0.833</b></td>
+                <td>4.074</td><td>0.731</td>
+              </tr>
+              <tr style="border-top: 2px solid #000;">
+                <td style="font-style: italic; text-align: right;">&#916; vs. best baseline</td>
+                <td>-0.625</td><td>+0.085</td>
+                <td>-0.758</td><td>+0.107</td>
+                <td>-0.626</td><td>+0.089</td>
+                <td>-2.408</td><td>+0.215</td>
+                <td>-2.372</td><td>+0.215</td>
+                <td>+0.320</td><td>-0.049</td>
+              </tr>
             </tbody>
           </table>
 
@@ -273,7 +286,7 @@
               <tr>
                 <th rowspan="2">Method</th>
                 <th colspan="2">Frontal (0&#176;)</th>
-                <th colspan="2">Half-profile (&plusmn;45&#176;)</th>
+                <th colspan="2">Oblique (&plusmn;45&#176;)</th>
                 <th colspan="2">Profile (&plusmn;90&#176;)</th>
               </tr>
               <tr>
@@ -283,18 +296,6 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>ViGA-FLAME Recon.</td>
-                <td>3.019</td><td>0.902</td>
-                <td>3.011</td><td>0.896</td>
-                <td>3.251</td><td>0.864</td>
-              </tr>
-              <tr>
-                <td>ViGA-FLAME Param.</td>
-                <td><b>2.723</b></td><td><b>0.930</b></td>
-                <td><b>2.820</b></td><td><b>0.915</b></td>
-                <td><b>3.109</b></td><td><b>0.879</b></td>
-              </tr>
               <tr>
                 <td>DECA</td>
                 <td>5.263</td><td>0.756</td>
@@ -318,6 +319,18 @@
                 <td>5.642</td><td>0.736</td>
                 <td>5.408</td><td>0.743</td>
                 <td>6.860</td><td>0.678</td>
+              </tr>
+              <tr>
+                <td>ViGA-FLAME Recon.</td>
+                <td>3.019</td><td>0.902</td>
+                <td>3.011</td><td>0.896</td>
+                <td>3.251</td><td>0.864</td>
+              </tr>
+              <tr>
+                <td>ViGA-FLAME Param.</td>
+                <td><b>2.723</b></td><td><b>0.930</b></td>
+                <td><b>2.820</b></td><td><b>0.915</b></td>
+                <td><b>3.109</b></td><td><b>0.879</b></td>
               </tr>
             </tbody>
           </table>

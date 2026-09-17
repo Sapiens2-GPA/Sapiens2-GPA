@@ -4,7 +4,10 @@
 \renewcommand{\arraystretch}{0.95}
 \caption{\textbf{Face-only reconstruction across synthetic FLAME subsets and the RenderMe360~\cite{pan2023renderme} dataset.}
 Results are averaged over all five camera views after rigid ICP alignment.
-CD-L1 is reported in millimeters. Best results are in bold.}
+CD-L1 is reported in millimeters. Best results are in bold.
+$\Delta$ denotes ViGA-FLAME Param. minus the strongest baseline for each metric;
+negative CD-L1 and positive F@5 indicate improvements.
+}
 \label{tab:fixed_yaw_cross_regime}
 \begin{tabular}{@{}lrrrrrrrrrrrr@{}}
 \toprule
@@ -28,21 +31,6 @@ CD-L1$\downarrow$ & F@5$\uparrow$ &
 CD-L1$\downarrow$ & F@5$\uparrow$ &
 CD-L1$\downarrow$ & F@5$\uparrow$ &
 CD-L1$\downarrow$ & F@5$\uparrow$ \\
-\midrule
-ViGA-FLAME Recon.
-& 2.693 & 0.937
-& 2.774 & 0.923
-& 2.727 & 0.930
-& 3.581 & 0.835
-& 3.768 & 0.798
-& 4.430 & 0.696 \\
-ViGA-FLAME Param.
-& \textbf{2.556} & \textbf{0.949}
-& \textbf{2.710} & \textbf{0.929}
-& \textbf{2.659} & \textbf{0.938}
-& \textbf{3.212} & \textbf{0.868}
-& \textbf{3.445} & \textbf{0.833}
-& 4.074 & 0.731 \\
 \midrule
 DECA~\cite{feng2021deca}
 & 3.181 & 0.864
@@ -72,6 +60,28 @@ SHeaP~\cite{schoneveld2025sheap}
 & 8.023 & 0.613
 & 8.113 & 0.585
 & \textbf{3.754} & \textbf{0.780} \\
+\midrule
+ViGA-FLAME Recon.
+& 2.693 & 0.937
+& 2.774 & 0.923
+& 2.727 & 0.930
+& 3.581 & 0.835
+& 3.768 & 0.798
+& 4.430 & 0.696 \\
+ViGA-FLAME Param.
+& \textbf{2.556} & \textbf{0.949}
+& \textbf{2.710} & \textbf{0.929}
+& \textbf{2.659} & \textbf{0.938}
+& \textbf{3.212} & \textbf{0.868}
+& \textbf{3.445} & \textbf{0.833}
+& 4.074 & 0.731 \\
+\multicolumn{1}{r}{\emph{$\Delta$ vs.\ best baseline}} &
+$-0.625$ & $+0.085$ &
+$-0.758$ & $+0.107$ &
+$-0.626$ & $+0.089$ &
+$-2.408$ & $+0.215$ &
+$-2.372$ & $+0.215$ &
+$+0.320$ & $-0.049$ \\
 \bottomrule
 \vspace{-0.6cm}
 \end{tabular}

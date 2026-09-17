@@ -1,11 +1,30 @@
-\begin{table}[htbp]\centering\small
-\setlength{\tabcolsep}{3pt}
-\caption{Ablation studies of \headvae variations.}\label{tab:ablation_headvae}
-\begin{tabular}{lccc}\toprule
-Method & Recon. ↓ & Param. ↓ & Recon.$\leftrightarrow$Param. ↓ \\ \midrule
-Base & 1.0281 & 0.9472 & 1.2707\\
-+ $\lambda_g\mathcal{L}_{\mathrm{par\text{-}gt}}$ & 0.9942 & 0.8152 & 1.1726\\
-++ $\lambda_c\mathcal{L}_{\mathrm{par\text{-}geo}}$ & 1.0347 & 0.7643 & 1.2344\\
-+++ $\text{Cond}_{query}$ & 0.8647 & 0.4975 & 0.9713\\ 
-+++ $\text{Cond}_{add}$ & 0.9831 & 0.5830 & 1.1605\\ \bottomrule
-\end{tabular}\end{table} 
+\begin{figure}[t]
+    \centering
+    \begin{overpic}[width=\columnwidth]{figures/visualization.png}
+
+
+        % Blue frame: columns (a)--(b), input and frontal-view image
+        \put(0,0){\color{blue}\linethickness{1pt}\framebox(12.5,66.6){}}
+        
+        \put(87.5,0){\color{red}\linethickness{1pt}\framebox(12.5,66.6){}}
+ 
+        \put(5,-5){\scriptsize\textbf{(a)}}
+        \put(17.5,-5){\scriptsize\textbf{(b)}}
+        \put(30,-5){\scriptsize\textbf{(c)}}
+        \put(42.5,-5){\scriptsize\textbf{(d)}}
+        \put(55,-5){\scriptsize\textbf{(e)}}
+        \put(67.5,-5){\scriptsize\textbf{(f)}}
+        \put(80,-5){\scriptsize\textbf{(g)}}
+        \put(92.5,-5){\scriptsize\textbf{(h)}}
+    \end{overpic}
+
+    \vspace{1mm} % 给图片的负坐标标签预留空间，防止与 Caption 挤叠
+    \setlength{\abovecaptionskip}{0mm}
+    \setlength{\belowcaptionskip}{0mm}
+    \caption{\textbf{Qualitative face reconstruction comparisons.}
+    Each row shows one example: (a) \textcolor{blue}{Input image}; (b) frontal-view display;
+    (c) Scan/GT mesh; (d) DECA~\cite{feng2021deca};
+    (e) SMIRK~\cite{filntisis2024smirk}; (f) TEASER~\cite{liu2025teaser};
+    (g) SHeaP~\cite{schoneveld2025sheap}; (h) Our \textcolor{red}{ViGA-FLAME}.}
+    \label{fig:qualitative_comparison}
+\end{figure}
